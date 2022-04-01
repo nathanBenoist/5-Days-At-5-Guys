@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class cameraOffice : MonoBehaviour
+public class oog : MonoBehaviour
 {
-
-	public void Onclick()
-	{
-		Debug.Log(Global.cameraOffice);
-		SceneManager.LoadScene("Office");
-	}
 
     void Start()
     {
@@ -19,6 +13,9 @@ public class cameraOffice : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.C))
+		{
+			SceneManager.LoadScene("Office");
+		}
     }
 }

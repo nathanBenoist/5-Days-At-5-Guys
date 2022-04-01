@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OffKeyB : MonoBehaviour
 {
@@ -21,6 +22,16 @@ public class OffKeyB : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.E))
 		{
 			Debug.Log(Global.paSystem);
+		}
+		
+		if(Input.GetKeyDown(KeyCode.F))
+		{
+			SceneManager.LoadScene("Window");
+		}
+		
+		if(Input.GetKeyDown(KeyCode.C))
+		{
+			SceneManager.LoadScene("Cameras");
 		}
     }
 }
