@@ -17,4 +17,5 @@ public static class Global
 	public static string blindClosed = "you closed the blinds";
 	public static string blindsOpen = "the blinds opened behind you";
 	public static string cameraOffice = "You are back in the office";
+	public static string clockMSG = "Something happpend";
 }

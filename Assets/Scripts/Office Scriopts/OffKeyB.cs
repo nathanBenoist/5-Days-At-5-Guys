@@ -33,5 +33,10 @@ public class OffKeyB : MonoBehaviour
 		{
 			SceneManager.LoadScene("Cameras");
 		}
+		
+		if(Input.GetKeyDown(KeyCode.X))
+		{
+			SceneManager.LoadScene("Coffee");
+		}
     }
 }
