@@ -1,1 +1,19 @@
 List of all needed sounds:
+-Phone Calls
+-Phone Ringing
+-Flashlight
+-P.A. System
+-Window Knocking & Shouting
+-Glass Breaking
+-Blind Shutting
+-Vent Sounds
+-Vent Button
+-A/C Sounds
+-Vent Man Getting Scared
+-Mole Man Sounds
+-Drinking Coffee
+-Coffee Machine Starting
+-Ambience
+-Day Ending Sound
+-Check Signing
+-Camera Sounds
