@@ -6,23 +6,24 @@ using UnityEngine;
 
 public class timeMachine1 : MonoBehaviour
 {
-	private static Timer timeClock;
+	private static Timer gameClock;
 	
     void Start()
     {
-		Debug.Log("UR MOM");
-        timeClock = new System.Timers.Timer();
-		timeClock.Interval = 10000;
-		timeClock.Elapsed += OnTimedEvent;
-		timeClock.Enabled = true;
+		gameClock = new System.Timers.Timer();
+		for(int i = 0; i < 8; i++)
+		{
+			gameClock.Interval = 60000;
+			gameClock.Elapsed += OnTimedEvent;
+			gameClock.Enabled = true;
+		}
+		
+		void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
+		{
+			Debug.Log(Global.clockMSG);
+		}
     }
 
-		private static void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
-    {
-        Debug.Log("Timer ended");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         
