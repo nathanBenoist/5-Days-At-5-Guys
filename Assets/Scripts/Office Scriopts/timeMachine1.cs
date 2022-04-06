@@ -11,7 +11,7 @@ public class timeMachine1 : MonoBehaviour
     void Start()
     {
 		gameClock = new System.Timers.Timer();
-		for(int i = 0; i < 8; i++)
+		for(int i = 0; i < 7; i++)
 		{
 			gameClock.Interval = 60000;
 			gameClock.Elapsed += OnTimedEvent;
