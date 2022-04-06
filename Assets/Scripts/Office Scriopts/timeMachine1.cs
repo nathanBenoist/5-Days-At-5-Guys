@@ -7,20 +7,27 @@ using UnityEngine;
 public class timeMachine1 : MonoBehaviour
 {
 	private static Timer gameClock;
+	private glockCount = 0;
 	
     void Start()
     {
 		gameClock = new System.Timers.Timer();
-		for(int i = 0; i < 7; i++)
-		{
-			gameClock.Interval = 60000;
-			gameClock.Elapsed += OnTimedEvent;
-			gameClock.Enabled = true;
-		}
+
+		gameClock.Interval = 60000;
+		gameClock.Elapsed += OnTimedEvent;
+		gameClock.Enabled = true;
 		
 		void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
 		{
 			Debug.Log(Global.clockMSG);
+			gameClock.Stop();
+			GlockCount += 1;
+			
+			if(GlockCount != 8)
+			{
+				gameClock.Start();
+			}
+			
 		}
     }
 
