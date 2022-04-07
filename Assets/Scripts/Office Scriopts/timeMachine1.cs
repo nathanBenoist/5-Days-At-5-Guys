@@ -7,7 +7,7 @@ using UnityEngine;
 public class timeMachine1 : MonoBehaviour
 {
 	private static Timer gameClock;
-	private glockCount = 0;
+	private int glockCount = 0;
 	
     void Start()
     {
@@ -21,18 +21,29 @@ public class timeMachine1 : MonoBehaviour
 		{
 			Debug.Log(Global.clockMSG);
 			gameClock.Stop();
-			GlockCount += 1;
+			glockCount += 1;
 			
-			if(GlockCount != 8)
+			if(glockCount != 8)
 			{
 				gameClock.Start();
 			}
-			
+		}
+		
+		Global.beans = new System.Timers.Timer();
+		Global.beans.Interval = 5000;
+		Global.beans.Elapsed += caffineAddict;
+		Global.beans.Enabled = true;
+		
+		void caffineAddict(System.Object source, System.Timers.ElapsedEventArgs e)
+		{
+			globalBeans.cofMeter -= .15;
+			Global.beans.Stop();
+			Global.beans.Start();
 		}
     }
 
     void Update()
     {
-        
+        Debug.Log(globalBeans.cofMeter);
     }
 }
