@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Timers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,4 +22,10 @@ public static class Global
 	public static string clockMSG = "Something happpend";
 	public static string gmaEnd = "Game ended";
 	public static string glock = "Time end";
+	public static Timer beans;
+}
+
+public class globalBeans
+{
+	public static double cofMeter = .5;
 }
