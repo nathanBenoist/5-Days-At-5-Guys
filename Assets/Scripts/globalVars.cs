@@ -25,7 +25,7 @@ public static class Global
 	public static Timer beans;
 }
 
-public double class globalBeans
+public class globalBeans
 {
-	public double cofMeter = .5;
+	public static double cofMeter = .5;
 }

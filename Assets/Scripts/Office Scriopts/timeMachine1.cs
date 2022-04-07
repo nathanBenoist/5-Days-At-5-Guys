@@ -45,5 +45,9 @@ public class timeMachine1 : MonoBehaviour
     void Update()
     {
         Debug.Log(globalBeans.cofMeter);
+		if(globalBeans.cofMeter <= 0)
+		{
+			Debug.Log(Global.gmaEnd);
+		}
     }
 }
