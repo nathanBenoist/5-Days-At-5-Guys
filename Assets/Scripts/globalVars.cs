@@ -22,10 +22,13 @@ public static class Global
 	public static string clockMSG = "Something happpend";
 	public static string gmaEnd = "Game ended";
 	public static string glock = "Time end";
+	public static string nard = "The nerd is here";
 	public static Timer beans;
+	public static Timer gameClock;
 }
 
 public class globalBeans
 {
 	public static double cofMeter = .5;
+	public static int glockCount = 0;
 }

@@ -6,26 +6,24 @@ using UnityEngine;
 
 public class timeMachine1 : MonoBehaviour
 {
-	private static Timer gameClock;
-	private int glockCount = 0;
 	
     void Start()
     {
-		gameClock = new System.Timers.Timer();
+		Global.gameClock = new System.Timers.Timer();
 
-		gameClock.Interval = 60000;
-		gameClock.Elapsed += OnTimedEvent;
-		gameClock.Enabled = true;
+		Global.gameClock.Interval = 60000;
+		Global.gameClock.Elapsed += OnTimedEvent;
+		Global.gameClock.Enabled = true;
 		
 		void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
 		{
 			Debug.Log(Global.clockMSG);
-			gameClock.Stop();
-			glockCount += 1;
+			Global.gameClock.Stop();
+			globalBeans.glockCount += 1;
 			
-			if(glockCount != 8)
+			if(globalBeans.glockCount != 8)
 			{
-				gameClock.Start();
+				Global.gameClock.Start();
 			}
 		}
 		
@@ -45,6 +43,7 @@ public class timeMachine1 : MonoBehaviour
     void Update()
     {
         Debug.Log(globalBeans.cofMeter);
+		
 		if(globalBeans.cofMeter <= 0)
 		{
 			Debug.Log(Global.gmaEnd);
