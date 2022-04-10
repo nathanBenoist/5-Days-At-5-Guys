@@ -23,6 +23,7 @@ public static class Global
 	public static string gmaEnd = "Game ended";
 	public static string glock = "Time end";
 	public static string nard = "The nerd is here";
+	public static string me = "Nard please";
 	public static Timer beans;
 	public static Timer gameClock;
 }

@@ -13,45 +13,43 @@ public class unmyI : MonoBehaviour
 
     void Start()
     {
-		Debug.Log("nard on way");
-        deat = new System.Timers.Timer();
-		Debug.Log("Timer created");
-		
-		deat.Interval = 2000;
-		deat.Elapsed += OnTimedEvent;
-		deat.Enabled = true;
-		
-		void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
+		StartCoroutine(MyEvent());
+    }
+	
+	private IEnumerator MyEvent()
+	{
+		while(true)
 		{
-			Debug.Log("OnTimedEvent running");
-			
+			Debug.Log("Waiting 2 sec");
+			yield return new WaitForSeconds(2);
 			Debug.Log("Creating number");
-			number = System.Random.Range(1,11);
-			Debug.Log("MAYBE NUMBER???");
-			
-			if(ui >= number)
+			number = UnityEngine.Random.Range(1,11);
+			Debug.Log("Number made");
+		
+			if(ui >= number && !dude)
 			{
 				Debug.Log(Global.nard);
 				dude = true;
 			}
-			
-			deat.Stop();
-			deat.Start();
-		}
-    }
-
+		} 
+	}
+	
     void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Q) && dude == true)
+    {	
+		if(Input.GetKeyDown(KeyCode.Q) && dude == true)
 		{
-			Debug.Log(Global.lazerPointer);
-			dude = false;
+			Help();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.E) && dude == true)
 		{
-			Debug.Log(Global.paSystem);
-			dude = false;
+			Help();
 		}
     }
+	
+	void Help()
+	{
+		Debug.Log(Global.me);
+		dude = false;
+	}
 }
