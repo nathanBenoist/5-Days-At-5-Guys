@@ -3,6 +3,7 @@ using System.Timers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class globalVars : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public static class Global
 	public static string me = "Nard please";
 	public static Timer beans;
 	public static Timer gameClock;
+	
+	public static void finna2012()
+	{
+		SceneManager.LoadScene("GameOver");
+		Application.Quit();
+	}
 }
 
 public class globalBeans

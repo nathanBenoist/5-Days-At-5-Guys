@@ -10,9 +10,12 @@ public class unmyI : MonoBehaviour
 	private Timer deat;
 	private int number;
 	private bool dude = false;
+	public GameObject Nard;
+	
 
     void Start()
     {
+		Nard.SetActive(false);
 		StartCoroutine(MyEvent());
     }
 	
@@ -30,6 +33,7 @@ public class unmyI : MonoBehaviour
 			{
 				Debug.Log(Global.nard);
 				dude = true;
+				Nard.SetActive(true);
 			}
 		} 
 	}
@@ -51,5 +55,6 @@ public class unmyI : MonoBehaviour
 	{
 		Debug.Log(Global.me);
 		dude = false;
+		Nard.SetActive(false);
 	}
 }
