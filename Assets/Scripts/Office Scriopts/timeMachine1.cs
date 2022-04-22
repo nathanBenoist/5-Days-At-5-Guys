@@ -28,13 +28,13 @@ public class timeMachine1 : MonoBehaviour
 		}
 		
 		Global.beans = new System.Timers.Timer();
-		Global.beans.Interval = 5000;
+		Global.beans.Interval = 2500;
 		Global.beans.Elapsed += caffineAddict;
 		Global.beans.Enabled = true;
 		
 		void caffineAddict(System.Object source, System.Timers.ElapsedEventArgs e)
 		{
-			globalBeans.cofMeter -= .15;
+			globalBeans.cofMeter -= .2;
 			Global.beans.Stop();
 			Global.beans.Start();
 		}
@@ -44,7 +44,7 @@ public class timeMachine1 : MonoBehaviour
     {
         Debug.Log(globalBeans.cofMeter);
 		
-		if(globalBeans.cofMeter <= 0)
+		if(globalBeans.cofMeter <= 0 || globalBeans.cofMeter >= 8)
 		{
 			Global.finna2012();
 		}

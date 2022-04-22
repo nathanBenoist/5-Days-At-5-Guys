@@ -27,7 +27,6 @@ public static class Global
 	public static string me = "Nard please";
 	public static Timer beans;
 	public static Timer gameClock;
-	
 	public static void finna2012()
 	{
 		SceneManager.LoadScene("GameOver");
@@ -37,6 +36,6 @@ public static class Global
 
 public class globalBeans
 {
-	public static double cofMeter = .5;
+	public static double cofMeter = 1;
 	public static int glockCount = 0;
 }
