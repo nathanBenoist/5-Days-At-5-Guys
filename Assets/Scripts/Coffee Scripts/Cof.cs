@@ -16,7 +16,7 @@ public class Cof : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
 		{
-			globalBeans.cofMeter += .03;
+			globalBeans.cofMeter += .95;
 		}
 		
 		if(Input.GetKeyDown(KeyCode.X))

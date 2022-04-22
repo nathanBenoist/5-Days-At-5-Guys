@@ -10,6 +10,7 @@ public class camCycle : MonoBehaviour
     void Start()
     {
 		Bonk();
+		CamCycle[coke].SetActive(true);
     }
 
     void Update()

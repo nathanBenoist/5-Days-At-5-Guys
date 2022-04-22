@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class unmyI : MonoBehaviour
 {
-	private int ui = 10;
+	private int ui = 6;
 	private Timer deat;
 	private int number;
 	private bool dude = false;
@@ -24,7 +24,7 @@ public class unmyI : MonoBehaviour
 		while(true)
 		{
 			Debug.Log("Waiting 2 sec");
-			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds(5);
 			Debug.Log("Creating number");
 			number = UnityEngine.Random.Range(1,11);
 			Debug.Log("Number made");
