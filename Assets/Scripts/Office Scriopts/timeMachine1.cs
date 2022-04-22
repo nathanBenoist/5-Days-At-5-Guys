@@ -46,7 +46,7 @@ public class timeMachine1 : MonoBehaviour
 		
 		if(globalBeans.cofMeter <= 0)
 		{
-			Debug.Log(Global.gmaEnd);
+			Global.finna2012();
 		}
     }
 }
