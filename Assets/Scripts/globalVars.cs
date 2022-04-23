@@ -32,6 +32,26 @@ public static class Global
 		SceneManager.LoadScene("GameOver");
 		Application.Quit();
 	}
+	
+	public static IEnumerator IsThereATomorrow()
+	{
+		SceneManager.LoadScene("Day");
+		yield return new WaitForSeconds(3);
+		SceneManager.LoadScene("Office");
+	}
+	
+	public static IEnumerator HelpMe()
+	{
+		if(unmyI.dude == true)
+		{
+			yield return new WaitForSeconds(3);
+			if(unmyI.dude == true)
+			{
+				SceneManager.LoadScene("GameOver");
+				Application.Quit();
+			}
+		}
+	}
 }
 
 public class globalBeans

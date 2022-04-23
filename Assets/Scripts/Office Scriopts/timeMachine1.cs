@@ -25,6 +25,11 @@ public class timeMachine1 : MonoBehaviour
 			{
 				Global.gameClock.Start();
 			}
+			
+			else if(globalBeans.glockCount == 8)
+			{
+				Global.IsThereATomorrow();
+			}
 		}
 		
 		Global.beans = new System.Timers.Timer();

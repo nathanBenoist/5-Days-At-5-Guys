@@ -9,13 +9,16 @@ public class unmyI : MonoBehaviour
 	private int ui = 6;
 	private Timer deat;
 	private int number;
-	private bool dude = false;
+	public static bool dude = false;
 	public GameObject Nard;
+	public GameObject Nerd;
+	private int nardSpawn;
 	
 
     void Start()
     {
 		Nard.SetActive(false);
+		Nerd.SetActive(false);
 		StartCoroutine(MyEvent());
     }
 	
@@ -24,7 +27,7 @@ public class unmyI : MonoBehaviour
 		while(true)
 		{
 			Debug.Log("Waiting 2 sec");
-			yield return new WaitForSeconds(5);
+			yield return new WaitForSeconds(6);
 			Debug.Log("Creating number");
 			number = UnityEngine.Random.Range(1,11);
 			Debug.Log("Number made");
@@ -33,7 +36,23 @@ public class unmyI : MonoBehaviour
 			{
 				Debug.Log(Global.nard);
 				dude = true;
-				Nard.SetActive(true);
+				StartCoroutine(Global.HelpMe());
+				nardSpawn = UnityEngine.Random.Range(0,2);
+				if(nardSpawn == 0)
+				{
+					Nard.SetActive(true);
+				}
+				
+				else if(nardSpawn == 1)
+				{
+					Nerd.SetActive(true);
+				}
+				
+				else
+				{
+					Debug.Log("Nerd spawn messed up, closing game");
+					Application.Quit();
+				}
 			}
 		} 
 	}
