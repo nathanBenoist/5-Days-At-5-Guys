@@ -16,7 +16,7 @@ public class Cof : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
 		{
-			globalBeans.cofMeter += .95;
+			StartCoroutine(Global.ThereIsNoHope());
 		}
 		
 		if(Input.GetKeyDown(KeyCode.X))
