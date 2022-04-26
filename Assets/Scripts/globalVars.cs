@@ -20,13 +20,13 @@ public static class Global
 	public static string blindClosed = "you closed the blinds";
 	public static string blindsOpen = "the blinds opened behind you";
 	public static string cameraOffice = "You are back in the office";
-	public static string clockMSG = "Something happpend";
+	public static string clockMSG = "Hour went by";
 	public static string gmaEnd = "Game ended";
 	public static string glock = "Time end";
 	public static string nard = "The nerd is here";
 	public static string me = "Nard please";
-	public static Timer beans;
 	public static Timer gameClock;
+	
 	public static void finna2012()
 	{
 		SceneManager.LoadScene("GameOver");
@@ -51,6 +51,18 @@ public static class Global
 				Application.Quit();
 			}
 		}
+	}
+	
+	public static IEnumerator IFeelPainEveryNight()
+	{
+		yield return new WaitForSeconds(2);
+		globalBeans.cofMeter -= .2;
+	}
+	
+	public static IEnumerator ThereIsNoHope()
+	{
+		globalBeans.cofMeter += .95;
+		yield return new WaitForSeconds(1);
 	}
 }
 

@@ -31,18 +31,6 @@ public class timeMachine1 : MonoBehaviour
 				Global.IsThereATomorrow();
 			}
 		}
-		
-		Global.beans = new System.Timers.Timer();
-		Global.beans.Interval = 2500;
-		Global.beans.Elapsed += caffineAddict;
-		Global.beans.Enabled = true;
-		
-		void caffineAddict(System.Object source, System.Timers.ElapsedEventArgs e)
-		{
-			globalBeans.cofMeter -= .2;
-			Global.beans.Stop();
-			Global.beans.Start();
-		}
     }
 
     void Update()
