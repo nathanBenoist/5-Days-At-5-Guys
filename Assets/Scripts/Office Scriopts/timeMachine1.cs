@@ -9,35 +9,14 @@ public class timeMachine1 : MonoBehaviour
 	
     void Start()
     {
-		Global.gameClock = new System.Timers.Timer();
-
-		Global.gameClock.Interval = 60000;
-		Global.gameClock.Elapsed += OnTimedEvent;
-		Global.gameClock.Enabled = true;
-		
-		void OnTimedEvent(System.Object source, System.Timers.ElapsedEventArgs e)
-		{
-			Debug.Log(Global.clockMSG);
-			Global.gameClock.Stop();
-			globalBeans.glockCount += 1;
-			
-			if(globalBeans.glockCount != 8)
-			{
-				Global.gameClock.Start();
-			}
-			
-			else if(globalBeans.glockCount == 8)
-			{
-				Global.IsThereATomorrow();
-			}
-		}
+		StartCoroutine(Global.Timeout());
     }
 
     void Update()
     {
-        Debug.Log(globalBeans.cofMeter);
+        Debug.Log(Global.cofMeter);
 		
-		if(globalBeans.cofMeter <= 0 || globalBeans.cofMeter >= 8)
+		if(Global.cofMeter <= 0 || Global.cofMeter >= 8)
 		{
 			Global.finna2012();
 		}

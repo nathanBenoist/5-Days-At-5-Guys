@@ -26,6 +26,8 @@ public static class Global
 	public static string nard = "The nerd is here";
 	public static string me = "Nard please";
 	public static Timer gameClock;
+	public static double cofMeter = 1;
+	public static int glockCount = 7;
 	
 	public static void finna2012()
 	{
@@ -56,18 +58,25 @@ public static class Global
 	public static IEnumerator IFeelPainEveryNight()
 	{
 		yield return new WaitForSeconds(2);
-		globalBeans.cofMeter -= .2;
+		cofMeter -= .2;
 	}
 	
 	public static IEnumerator ThereIsNoHope()
 	{
-		globalBeans.cofMeter += .95;
+		cofMeter += .95;
 		yield return new WaitForSeconds(1);
 	}
-}
-
-public class globalBeans
-{
-	public static double cofMeter = 1;
-	public static int glockCount = 0;
+	
+	public static IEnumerator Timeout()
+	{
+		Debug.Log("tiner started");
+		yield return new WaitForSeconds(45);
+		glockCount += 1;
+		Debug.Log("Hour went by");
+		
+		if(glockCount == 8)
+		{
+			IsThereATomorrow();
+		}
+	}
 }
