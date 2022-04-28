@@ -26,16 +26,13 @@ public class unmyI : MonoBehaviour
 	{
 		while(true)
 		{
+			StartCoroutine(Global.Timeout());	
 			StartCoroutine(Global.IFeelPainEveryNight());
-			Debug.Log("Waiting 2 sec");
 			yield return new WaitForSeconds(3);
-			Debug.Log("Creating number");
 			number = UnityEngine.Random.Range(1,11);
-			Debug.Log("Number made");
 		
 			if(ui >= number && !dude)
 			{
-				Debug.Log(Global.nard);
 				dude = true;
 				StartCoroutine(Global.HelpMe());
 				nardSpawn = UnityEngine.Random.Range(0,2);
@@ -54,6 +51,11 @@ public class unmyI : MonoBehaviour
 					Debug.Log("Nerd spawn messed up, closing game");
 					Application.Quit();
 				}
+			}
+			
+			if (Global.glockCount != 8)
+			{
+				StartCoroutine(Global.Timeout());
 			}
 		} 
 	}
@@ -76,5 +78,6 @@ public class unmyI : MonoBehaviour
 		Debug.Log(Global.me);
 		dude = false;
 		Nard.SetActive(false);
+		Nerd.SetActive(false);
 	}
 }
