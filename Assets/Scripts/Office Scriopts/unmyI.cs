@@ -53,9 +53,15 @@ public class unmyI : MonoBehaviour
 				}
 			}
 			
-			if (Global.glockCount != 8)
+			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
 				StartCoroutine(Global.Timeout());
+			}
+			
+			if(Global.canISeeThem == true)
+			{
+				StartCoroutine(Global.IsThereATomorrow());
+				Global.canISeeThem = false;
 			}
 		} 
 	}
