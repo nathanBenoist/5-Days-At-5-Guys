@@ -28,6 +28,8 @@ public static class Global
 	public static Timer gameClock;
 	public static double cofMeter = 1;
 	public static int glockCount = 7;
+	public static bool isThereLove = false;
+	public static bool canISeeThem = false;
 	
 	public static void finna2012()
 	{
@@ -37,6 +39,7 @@ public static class Global
 	
 	public static IEnumerator IsThereATomorrow()
 	{
+		canISeeThem = false;
 		SceneManager.LoadScene("Day");
 		yield return new WaitForSeconds(3);
 		SceneManager.LoadScene("Office");
@@ -69,14 +72,16 @@ public static class Global
 	
 	public static IEnumerator Timeout()
 	{
+		isThereLove = true;
 		Debug.Log("tiner started");
-		yield return new WaitForSeconds(45);
+		yield return new WaitForSeconds(5);
 		glockCount += 1;
 		Debug.Log("Hour went by");
+		isThereLove = false;
 		
 		if(glockCount == 8)
 		{
-			IsThereATomorrow();
+			canISeeThem = true;
 		}
 	}
 }
