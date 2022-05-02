@@ -24,7 +24,7 @@ public class unmyI : MonoBehaviour
 	
 	private IEnumerator MyEvent()
 	{
-		while(true)
+		while(Global.theFogIsComing == true)
 		{
 			StartCoroutine(Global.Timeout());	
 			StartCoroutine(Global.IFeelPainEveryNight());
