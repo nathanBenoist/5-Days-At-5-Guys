@@ -30,6 +30,8 @@ public static class Global
 	public static int glockCount = 7;
 	public static bool isThereLove = false;
 	public static bool canISeeThem = false;
+	public static bool theFogIsComing = true;
+	public static bool losingInterst = false;
 	
 	public static void finna2012()
 	{
@@ -41,8 +43,7 @@ public static class Global
 	{
 		canISeeThem = false;
 		SceneManager.LoadScene("Day");
-		yield return new WaitForSeconds(3);
-		SceneManager.LoadScene("Office");
+		yield return new WaitForSeconds(0);
 	}
 	
 	public static IEnumerator HelpMe()
@@ -53,7 +54,6 @@ public static class Global
 			if(unmyI.dude == true)
 			{
 				SceneManager.LoadScene("GameOver");
-				Application.Quit();
 			}
 		}
 	}
@@ -83,5 +83,13 @@ public static class Global
 		{
 			canISeeThem = true;
 		}
+	}
+	
+	public static IEnumerator MaybeTodayWillBeBetter()
+	{
+		yield return new WaitForSeconds(3);
+		cofMeter = 1;
+		glockCount = 0;
+		SceneManager.LoadScene("Office");
 	}
 }
