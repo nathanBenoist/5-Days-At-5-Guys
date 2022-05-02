@@ -55,6 +55,16 @@ public static class Global
 			{
 				SceneManager.LoadScene("GameOver");
 			}
+			
+			if(TheFog.hope == true)
+			{
+				SceneManager.LoadScene("GameOver");
+			}
+			
+			if(TheFog.imDoingFine == true)
+			{
+				SceneManager.LoadScene("GameOver");
+			}
 		}
 	}
 	
