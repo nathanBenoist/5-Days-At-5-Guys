@@ -12,7 +12,10 @@ public class TheFog : MonoBehaviour
 	public static bool imDoingFine = false;
 	private int immigrant;
 	private int bloodThurst;
-	
+	public GameObject EndMe;
+	public GameObject redBull;
+	public GameObject stickers;
+	public GameObject war;
 	
     void Start()
     {
@@ -37,18 +40,72 @@ public class TheFog : MonoBehaviour
 			{
 				hope = true;
 				StartCoroutine(Global.HelpMe());
+				immigrant = UnityEngine.Random.Range(0,2);
+				
+				if(immigrant == 0)
+				{
+					EndMe.SetActive(true);
+				}
+				
+				if(immigrant == 1)
+				{
+					redBull.SetActive(true);
+				}
 			}
 			
 			if(noEyes >= sight && !imDoingFine)
 			{
 				imDoingFine = true;
 				StartCoroutine(Global.HelpMe());
+				bloodThurst = UnityEngine.Random.Range(0,2);
+				
+				if(bloodThurst == 0)
+				{
+					stickers.SetActive(true);
+				}
+				
+				if(bloodThurst == 1)
+				{
+					war.SetActive(true);
+				}
+			}
+			
+			if (Global.glockCount != 8 && Global.isThereLove == false)
+			{
+				StartCoroutine(Global.Timeout());
 			}
 		}
 	}
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Q) && hope == true)
+		{
+			INeedABreak();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && imDoingFine == true)
+		{
+			bang();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && hope == true || Input.GetKeyDown(KeyCode.Q) && imDoingFine == true)
+		{
+			Global.finna2012();
+		}
     }
+	
+	void INeedABreak()
+	{
+		hope = false;
+		EndMe.SetActive(false);
+		redBull.SetActive(false);
+	}
+	
+	void bang()
+	{
+		imDoingFine = false;
+		stickers.SetActive(false);
+		war.SetActive(false);
+	}
 }
