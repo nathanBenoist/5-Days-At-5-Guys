@@ -1,23 +1,25 @@
 List of all needed sounds
--Menu Music
--Phone Calls
--Phone Ringing
--Flashlight
--P.A. System
--Window Knocking & Shouting
--Glass Breaking
--Blind Shutting
--Vent Sounds
--Vent Button
--A/C Sounds
--Vent Man Getting Scared
--Mole Man Sounds
--Drinking Coffee
--Coffee Machine Starting
--Ambience
--Day Ending Sound
--Check Signing
--Camera Sounds
--Jumpscare
--Random Voice Lines
--
+-Menu Music - Found: Scheming Weasel
+-Phone Calls - Day 1: Pending, Day 2: Pending, Day 3: Recorded, Day 4: Pending
+-Phone Ringing - Found: Nokia Ringtone Arabic
+-Flashlight - Found: https://www.youtube.com/watch?v=86M0gpRzrs4
+-P.A. System - Found: https://www.youtube.com/watch?v=JdsgFu5bMvQ
+-Window Knocking & Shouting - Need to Record
+-Glass Breaking - Found: https://www.youtube.com/watch?v=ovQC32AKAnU
+-Blind Shutting - Found: https://www.youtube.com/watch?v=h2YrZb-lQKE
+-Vent Sounds - Found: https://www.youtube.com/watch?v=ipdho5f55jU
+-Vent Button - Found: https://www.youtube.com/watch?v=gVylTS6Y1Bs
+-A/C Sounds - Found: https://www.youtube.com/watch?v=OE9bF80KQGk
+-Vent Man Getting Scared - Found: https://www.youtube.com/watch?v=DYFoezNuowg
+-Mole Man Sounds - Found: https://www.youtube.com/watch?v=soUitxPrO1s
+-Drinking Coffee - Found: https://www.youtube.com/watch?v=7aB9tnBBivU
+-Coffee Machine Starting - Found: https://www.youtube.com/watch?v=SuL9PoaGbuY
+-Coffee Death - Found: https://www.youtube.com/watch?v=dHb9fgE21sc
+-Losing - Found: https://www.youtube.com/watch?v=PYTPHIEXGzo
+-Boowomp - Found: https://www.youtube.com/watch?v=Ta2CK4ByGsw
+-Ingame Music - Found: Sneaky Snitch
+-Day Ending Sound - Found: Spazzmatica Polka
+-Check Signing - Found: https://www.youtube.com/watch?v=huGyFog4YWU
+-Camera Sounds - Found: https://www.youtube.com/watch?v=ZL9mlHKCEh8
+-Jumpscare - Need to Record
+-Random Russian Voice Lines - Need to Record
