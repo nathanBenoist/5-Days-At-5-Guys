@@ -16,17 +16,41 @@ public class OffKeyB : MonoBehaviour
     {			
 		if(Input.GetKeyDown(KeyCode.F))
 		{
-			SceneManager.LoadScene("Window");
+			if(unmyI.dude == true || TheFog.hope == true || TheFog.imDoingFine == true)
+			{
+				Global.finna2012();
+			}
+			
+			else
+			{
+				SceneManager.LoadScene("Window");
+			}
 		}
 		
 		if(Input.GetKeyDown(KeyCode.C))
 		{
-			SceneManager.LoadScene("Cameras");
+			if(unmyI.dude == true || TheFog.hope == true || TheFog.imDoingFine == true)
+			{
+				Global.finna2012();
+			}
+			
+			else
+			{
+				SceneManager.LoadScene("Cameras");
+			}
 		}
 		
 		if(Input.GetKeyDown(KeyCode.X))
 		{
-			SceneManager.LoadScene("Coffee");
+			if(unmyI.dude == true || TheFog.hope == true || TheFog.imDoingFine == true)
+			{
+				Global.finna2012();
+			}
+			
+			else
+			{
+				SceneManager.LoadScene("Coffee");
+			}
 		}
     }
 }

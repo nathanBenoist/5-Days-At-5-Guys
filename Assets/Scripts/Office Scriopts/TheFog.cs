@@ -19,12 +19,16 @@ public class TheFog : MonoBehaviour
 	
     void Start()
     {
+		unmyI.dude = false;
+		EndMe.SetActive(false);
+		redBull.SetActive(false);
+		stickers.SetActive(false);
+		war.SetActive(false);
+		StartCoroutine(Numb());
     }
 	
 	private IEnumerator Numb()
 	{
-		Global.theFogIsComing = false;
-		Global.losingInterst = true;
 		immigrant = UnityEngine.Random.Range(0,2);
 		bloodThurst = UnityEngine.Random.Range(0,2);
 		
@@ -73,6 +77,12 @@ public class TheFog : MonoBehaviour
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
 				StartCoroutine(Global.Timeout());
+			}
+			
+			if(Global.canISeeThem == true)
+			{
+				Global.losingInterst = false;
+				Global.dreamer = true;
 			}
 		}
 	}

@@ -24,14 +24,14 @@ public static class Global
 	public static string gmaEnd = "Game ended";
 	public static string glock = "Time end";
 	public static string nard = "The nerd is here";
-	public static string me = "Nard please";
 	public static Timer gameClock;
 	public static double cofMeter = 1;
-	public static int glockCount = 7;
+	public static int glockCount = 0;
 	public static bool isThereLove = false;
 	public static bool canISeeThem = false;
 	public static bool theFogIsComing = true;
 	public static bool losingInterst = false;
+	public static bool dreamer = false;
 	
 	public static void finna2012()
 	{
@@ -53,17 +53,24 @@ public static class Global
 			yield return new WaitForSeconds(3);
 			if(unmyI.dude == true)
 			{
-				SceneManager.LoadScene("GameOver");
+				finna2012();
 			}
 			
 			if(TheFog.hope == true)
 			{
-				SceneManager.LoadScene("GameOver");
+				yield return new WaitForSeconds(3);
+				if(TheFog.hope == true)
+				{
+					finna2012();
+				}
 			}
-			
 			if(TheFog.imDoingFine == true)
 			{
-				SceneManager.LoadScene("GameOver");
+				yield return new WaitForSeconds(3);
+				if(TheFog.imDoingFine == true)
+				{
+					finna2012();
+				}
 			}
 		}
 	}
@@ -84,7 +91,7 @@ public static class Global
 	{
 		isThereLove = true;
 		Debug.Log("tiner started");
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(45);
 		glockCount += 1;
 		Debug.Log("Hour went by");
 		isThereLove = false;
