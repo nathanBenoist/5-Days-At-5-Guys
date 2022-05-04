@@ -1,6 +1,6 @@
 List of all needed sounds
 -Menu Music - Found: Scheming Weasel
--Phone Calls - Day 1: Pending, Day 2: Pending, Day 3: Recorded, Day 4: Pending
+-Phone Calls - Day 1: Pending, Day 2: Recorded, Day 3: Recorded, Day 4: Pending, Day 5: 
 -Phone Ringing - Found: Nokia Ringtone Arabic
 -Mexican Hat Dance - Found: https://www.youtube.com/watch?v=q-Rqdgna3Yw
 -Flashlight - Found: https://www.youtube.com/watch?v=86M0gpRzrs4
@@ -23,4 +23,4 @@ List of all needed sounds
 -Check Signing - Found: https://www.youtube.com/watch?v=huGyFog4YWU
 -Camera Sounds - Found: https://www.youtube.com/watch?v=ZL9mlHKCEh8
 -Jumpscare - Need to Record
--Random Russian Voice Lines - Need to Record
+-Random Russian Voice Lines - Recorded
