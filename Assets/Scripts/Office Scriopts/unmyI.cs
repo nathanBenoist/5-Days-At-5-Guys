@@ -22,7 +22,7 @@ public class unmyI : MonoBehaviour
 		StartCoroutine(MyEvent());
     }
 	
-	private IEnumerator MyEvent()
+	public static IEnumerator MyEvent()
 	{
 		while(Global.theFogIsComing == true)
 		{
@@ -30,7 +30,7 @@ public class unmyI : MonoBehaviour
 			StartCoroutine(Global.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			number = UnityEngine.Random.Range(1,11);
-		
+			
 			if(ui >= number && !dude)
 			{
 				dude = true;
@@ -62,6 +62,8 @@ public class unmyI : MonoBehaviour
 			{
 				StartCoroutine(Global.IsThereATomorrow());
 				Global.canISeeThem = false;
+				Global.theFogIsComing = false;
+				Global.losingInterst = true;
 			}
 		} 
 	}
@@ -81,7 +83,6 @@ public class unmyI : MonoBehaviour
 	
 	void Help()
 	{
-		Debug.Log(Global.me);
 		dude = false;
 		Nard.SetActive(false);
 		Nerd.SetActive(false);
