@@ -46,13 +46,15 @@ public class TheFog : MonoBehaviour
 				yield return Global.HelpMe();
 				immigrant = UnityEngine.Random.Range(0,2);
 				
-				if(immigrant == 0)
+				if(immigrant == 0 && Global.cantLoveMyself == false)
 				{
+					Global.cantLoveMyself = true;
 					EndMe.SetActive(true);
 				}
 				
-				if(immigrant == 1)
+				if(immigrant == 1 && Global.sayGoodbye == false)
 				{
+					Global.sayGoodbye = true;
 					redBull.SetActive(true);
 				}
 			}
@@ -63,20 +65,23 @@ public class TheFog : MonoBehaviour
 				yield return Global.HelpMe();
 				bloodThurst = UnityEngine.Random.Range(0,2);
 				
-				if(bloodThurst == 0)
+				if(bloodThurst == 0 && Global.cantLoveMyself == false)
 				{
+					Global.sayGoodbye = true;
 					stickers.SetActive(true);
 				}
 				
-				if(bloodThurst == 1)
+				if(bloodThurst == 1 && Global.sayGoodbye == false)
 				{
+					Global.sayGoodbye = true;
 					war.SetActive(true);
 				}
 			}
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
-				yield return Global.Timeout()/;
+        tell-me-why
+				yield return Global.Timeout();
 			}
 			
 			if(Global.canISeeThem == true)
@@ -110,6 +115,8 @@ public class TheFog : MonoBehaviour
 		hope = false;
 		EndMe.SetActive(false);
 		redBull.SetActive(false);
+		Global.cantLoveMyself = false;
+		Global.sayGoodbye = false;
 	}
 	
 	void bang()
@@ -117,5 +124,7 @@ public class TheFog : MonoBehaviour
 		imDoingFine = false;
 		stickers.SetActive(false);
 		war.SetActive(false);
+		Global.cantLoveMyself = false;
+		Global.sayGoodbye = false;
 	}
 }
