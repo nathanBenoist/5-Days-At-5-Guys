@@ -80,6 +80,7 @@ public class TheFog : MonoBehaviour
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
+        tell-me-why
 				yield return Global.Timeout();
 			}
 			
