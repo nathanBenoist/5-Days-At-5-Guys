@@ -27,15 +27,15 @@ public class TheFog : MonoBehaviour
 		StartCoroutine(Numb());
     }
 	
-	private IEnumerator Numb()
+	public IEnumerator Numb()
 	{
 		immigrant = UnityEngine.Random.Range(0,2);
 		bloodThurst = UnityEngine.Random.Range(0,2);
 		
 		while(Global.losingInterst == true)
 		{
-			StartCoroutine(Global.Timeout());
-			StartCoroutine(Global.IFeelPainEveryNight());
+			yield return Global.Timeout();
+			yield return Global.IFeelPainEveryNight();
 			yield return new WaitForSeconds(3);
 			mexicanChance = UnityEngine.Random.Range(1,11);
 			sight = UnityEngine.Random.Range(1, 11);
@@ -43,7 +43,7 @@ public class TheFog : MonoBehaviour
 			if(mexican >= mexicanChance && !hope)
 			{
 				hope = true;
-				StartCoroutine(Global.HelpMe());
+				yield return Global.HelpMe();
 				immigrant = UnityEngine.Random.Range(0,2);
 				
 				if(immigrant == 0)
@@ -60,7 +60,7 @@ public class TheFog : MonoBehaviour
 			if(noEyes >= sight && !imDoingFine)
 			{
 				imDoingFine = true;
-				StartCoroutine(Global.HelpMe());
+				yield return Global.HelpMe();
 				bloodThurst = UnityEngine.Random.Range(0,2);
 				
 				if(bloodThurst == 0)
@@ -76,7 +76,7 @@ public class TheFog : MonoBehaviour
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
-				StartCoroutine(Global.Timeout());
+				yield return Global.Timeout()/;
 			}
 			
 			if(Global.canISeeThem == true)
