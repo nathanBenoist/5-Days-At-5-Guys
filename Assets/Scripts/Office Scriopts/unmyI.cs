@@ -22,19 +22,19 @@ public class unmyI : MonoBehaviour
 		StartCoroutine(MyEvent());
     }
 	
-	public static IEnumerator MyEvent()
+	public IEnumerator MyEvent()
 	{
 		while(Global.theFogIsComing == true)
 		{
-			StartCoroutine(Global.Timeout());	
-			StartCoroutine(Global.IFeelPainEveryNight());
+			yield return Global.Timeout();	
+			yield return Global.IFeelPainEveryNight();
 			yield return new WaitForSeconds(3);
 			number = UnityEngine.Random.Range(1,11);
 			
 			if(ui >= number && !dude)
 			{
 				dude = true;
-				StartCoroutine(Global.HelpMe());
+				yield return Global.HelpMe();
 				nardSpawn = UnityEngine.Random.Range(0,2);
 				if(nardSpawn == 0)
 				{
@@ -55,12 +55,12 @@ public class unmyI : MonoBehaviour
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
-				StartCoroutine(Global.Timeout());
+				yield return Global.Timeout();
 			}
 			
 			if(Global.canISeeThem == true)
 			{
-				StartCoroutine(Global.IsThereATomorrow());
+				yield return Global.IsThereATomorrow();
 				Global.canISeeThem = false;
 				Global.theFogIsComing = false;
 				Global.losingInterst = true;
