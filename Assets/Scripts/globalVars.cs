@@ -32,6 +32,8 @@ public static class Global
 	public static bool theFogIsComing = true;
 	public static bool losingInterst = false;
 	public static bool dreamer = false;
+	public static bool cantLoveMyself = false;
+	public static bool sayGoodbye = false;
 	
 	public static void finna2012()
 	{
