@@ -20,7 +20,7 @@ public class monlk : MonoBehaviour
 		
 		if(Input.GetKeyDown(KeyCode.R))
 		{
-			Debug.Log(Global.blindClosed);
+			//Debug.Log(Global.blindClosed);
 		}
     }
 }
