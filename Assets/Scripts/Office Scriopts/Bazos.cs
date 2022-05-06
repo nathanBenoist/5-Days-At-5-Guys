@@ -7,18 +7,26 @@ public class Bazos : MonoBehaviour
 	private int money = 7;
 	private int billion;
 	public static bool notAsRichAsElon = false;
-	public GameObject bazos;
-	public GameObject baezos;
-	private int moneyCave;
 	
     void Start()
     {
-        
+        unmyI.dude = false;
+		TheFog.hope = false;
+		TheFog.imDoingFine = false;
+		UnmyI.Nerd.SetActive(false);
+		UnmyI.Nard.SetActive(false);
+		TheFog.EndMe.SetActive(false);
+		TheFog.redBull.SetActive(false);
+		TheFog.stickers.SetActive(false);
+		TheFog.war.SetActive(false);
+		StartCoroutine(unmyI.MyEvent());
+		StartCoroutine(TheFog.Numb());
+		StartCoroutine(mrKrabs());
     }
 	
 	public IEnumerator mrKrabs()
 	{
-		while(Global.dreamer == true)
+		while(Global.losingInterst == true)
 		{
 			yield return Global.Timeout();	
 			yield return Global.IFeelPainEveryNight();
@@ -28,17 +36,13 @@ public class Bazos : MonoBehaviour
 			if(money >= billion && !notAsRichAsElon)
 			{
 				notAsRichAsElon = true;
-				yield return Global.HelpMe()
-				moneyCave = UnityEngine.Random.Range(0, 2);
+				yield return Global.HelpMe();
 				
-				if(moneyCave == 0)
-				{
-					bazos.SetActive(true);
-				}
+				Debug.Log("Give me my power back");
 				
-				if(moneyCave == 1)
+				if (Global.glockCount != 8 && Global.isThereLove == false)
 				{
-					baezos.SetActive(true);
+					yield return Global.Timeout();
 				}
 			}
 		}

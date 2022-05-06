@@ -13,7 +13,7 @@ public static class Global
 {
 	public static Timer gameClock;
 	public static double cofMeter = 1;
-	public static int glockCount = 0;
+	public static int glockCount = 7;
 	public static bool isThereLove = false;
 	public static bool canISeeThem = false;
 	public static bool theFogIsComing = true;
@@ -44,22 +44,29 @@ public static class Global
 			{
 				finna2012();
 			}
-			
+		}	
+		if(TheFog.hope == true)
+		{
+			yield return new WaitForSeconds(3);
 			if(TheFog.hope == true)
 			{
-				yield return new WaitForSeconds(3);
-				if(TheFog.hope == true)
-				{
-					finna2012();
-				}
+				finna2012();
 			}
+		}
+		if(TheFog.imDoingFine == true)
+		{
+			yield return new WaitForSeconds(3);
 			if(TheFog.imDoingFine == true)
 			{
-				yield return new WaitForSeconds(3);
-				if(TheFog.imDoingFine == true)
-				{
-					finna2012();
-				}
+				finna2012();
+			}
+		}
+		if(Bazos.notAsRichAsElon == true)
+		{
+			yield return new WaitForSeconds(3);
+			if(Bazos.notAsRichAsElon == true)
+			{
+				finna2012();
 			}
 		}
 	}

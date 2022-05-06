@@ -35,20 +35,16 @@ public class unmyI : MonoBehaviour
 				dude = true;
 				yield return Global.HelpMe();
 				nardSpawn = UnityEngine.Random.Range(0,2);
-				if(nardSpawn == 0)
+				if(nardSpawn == 0 && Global.cantLoveMyself == false)
 				{
+					Global.cantLoveMyself = true;
 					Nard.SetActive(true);
 				}
 				
-				else if(nardSpawn == 1)
+				else if(nardSpawn == 1 && Global.sayGoodbye == false)
 				{
+					Global.sayGoodbye = true;
 					Nerd.SetActive(true);
-				}
-				
-				else
-				{
-					Debug.Log("Nerd spawn messed up, closing game");
-					Application.Quit();
 				}
 			}
 			
@@ -83,6 +79,8 @@ public class unmyI : MonoBehaviour
 	void Help()
 	{
 		dude = false;
+		Global.cantLoveMyself = false;
+		Global.sayGoodbye = false;
 		Nard.SetActive(false);
 		Nerd.SetActive(false);
 	}
