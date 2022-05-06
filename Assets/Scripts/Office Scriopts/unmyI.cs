@@ -7,7 +7,6 @@ using UnityEngine;
 public class unmyI : MonoBehaviour
 {
 	private int ui = 7;
-	private Timer deat;
 	private int number;
 	public static bool dude = false;
 	public GameObject Nard;
