@@ -20,10 +20,13 @@ public class TheFog : MonoBehaviour
     void Start()
     {
 		unmyI.dude = false;
+		UnmyI.Nerd.SetActive(false);
+		UnmyI.Nard.SetActive(false);
 		EndMe.SetActive(false);
 		redBull.SetActive(false);
 		stickers.SetActive(false);
 		war.SetActive(false);
+		StartCoroutine(unmyI.myEvent());
 		StartCoroutine(Numb());
     }
 	
@@ -40,7 +43,7 @@ public class TheFog : MonoBehaviour
 			mexicanChance = UnityEngine.Random.Range(1,11);
 			sight = UnityEngine.Random.Range(1, 11);
 			
-			if(mexican >= mexicanChance && !hope)
+			if(mexican >= mexicanChance && !hope && !imDoingFine)
 			{
 				hope = true;
 				yield return Global.HelpMe();
@@ -59,7 +62,7 @@ public class TheFog : MonoBehaviour
 				}
 			}
 			
-			if(noEyes >= sight && !imDoingFine)
+			if(noEyes >= sight && !imDoingFine && !hope)
 			{
 				imDoingFine = true;
 				yield return Global.HelpMe();
@@ -89,7 +92,7 @@ public class TheFog : MonoBehaviour
 				Global.dreamer = true;
 			}
 		}
-	}
+	} 
 
     void Update()
     {

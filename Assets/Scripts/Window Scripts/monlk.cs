@@ -15,12 +15,12 @@ public class monlk : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
 		{
+			if(Bazos.notAsRichAsElon == true)
+			{
+				Global.finna2012();
+			}
+			
 			SceneManager.LoadScene("Office");
-		}
-		
-		if(Input.GetKeyDown(KeyCode.R))
-		{
-			//Debug.Log(Global.blindClosed);
 		}
     }
 }
