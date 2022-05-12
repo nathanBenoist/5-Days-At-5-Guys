@@ -19,14 +19,10 @@ public class TheFog : MonoBehaviour
 	
     void Start()
     {
-		unmyI.dude = false;
-		UnmyI.Nerd.SetActive(false);
-		UnmyI.Nard.SetActive(false);
 		EndMe.SetActive(false);
 		redBull.SetActive(false);
 		stickers.SetActive(false);
 		war.SetActive(false);
-		StartCoroutine(unmyI.myEvent());
 		StartCoroutine(Numb());
     }
 	

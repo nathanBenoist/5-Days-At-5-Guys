@@ -21,6 +21,7 @@ public static class Global
 	public static bool dreamer = false;
 	public static bool cantLoveMyself = false;
 	public static bool sayGoodbye = false;
+	public static bool ac = false;
 	
 	public static void finna2012()
 	{
@@ -87,7 +88,7 @@ public static class Global
 	{
 		isThereLove = true;
 		Debug.Log("tiner started");
-		yield return new WaitForSeconds(45);
+		yield return new WaitForSeconds(30);
 		glockCount += 1;
 		Debug.Log("Hour went by");
 		isThereLove = false;

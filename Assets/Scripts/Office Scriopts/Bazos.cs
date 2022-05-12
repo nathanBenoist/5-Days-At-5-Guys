@@ -10,17 +10,6 @@ public class Bazos : MonoBehaviour
 	
     void Start()
     {
-        unmyI.dude = false;
-		TheFog.hope = false;
-		TheFog.imDoingFine = false;
-		UnmyI.Nerd.SetActive(false);
-		UnmyI.Nard.SetActive(false);
-		TheFog.EndMe.SetActive(false);
-		TheFog.redBull.SetActive(false);
-		TheFog.stickers.SetActive(false);
-		TheFog.war.SetActive(false);
-		StartCoroutine(unmyI.MyEvent());
-		StartCoroutine(TheFog.Numb());
 		StartCoroutine(mrKrabs());
     }
 	
