@@ -15,7 +15,7 @@ public class Bazos : MonoBehaviour
 	
 	public IEnumerator mrKrabs()
 	{
-		while(Global.losingInterst == true)
+		while(Global.dreamer == true)
 		{
 			yield return Global.Timeout();	
 			yield return Global.IFeelPainEveryNight();
@@ -32,6 +32,14 @@ public class Bazos : MonoBehaviour
 				if (Global.glockCount != 8 && Global.isThereLove == false)
 				{
 					yield return Global.Timeout();
+				}
+				
+				if(Global.canISeeThem == false)
+				{
+					yield return Global.IsThereATomorrow();
+					Global.canISeeThem = false;
+					Global.dreamer = false;
+					Global.moleLad = true;
 				}
 			}
 		}
