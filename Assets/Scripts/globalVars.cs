@@ -22,6 +22,8 @@ public static class Global
 	public static bool cantLoveMyself = false;
 	public static bool sayGoodbye = false;
 	public static bool ac = false;
+	public static bool moleLad = false;
+	public static bool commie = false;
 	
 	public static void finna2012()
 	{

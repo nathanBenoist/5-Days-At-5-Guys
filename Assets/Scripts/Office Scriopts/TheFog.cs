@@ -84,6 +84,8 @@ public class TheFog : MonoBehaviour
 			
 			if(Global.canISeeThem == true)
 			{
+				yield return Global.IsThereATomorrow();
+				Global.canISeeThem = false;
 				Global.losingInterst = false;
 				Global.dreamer = true;
 			}
