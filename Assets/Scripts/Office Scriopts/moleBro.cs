@@ -9,6 +9,9 @@ public class moleBro : MonoBehaviour
 	public static bool moleShow = false;
 	public GameObject moleMan;
 	private int moleSpawn;
+	private int ventUi = 7;
+	public static bool ventShow = false;
+	public GameObject ventMan;
 	
     void Start()
     {
@@ -19,7 +22,7 @@ public class moleBro : MonoBehaviour
 	public IEnumerator moleGuy() 
 	{
 		while(Global.moleLad == false)
-		{
+		{			
 			yield return Global.Timeout();	
 			yield return Global.IFeelPainEveryNight();
 			yield return new WaitForSeconds(3);
@@ -30,6 +33,13 @@ public class moleBro : MonoBehaviour
 				moleShow = true;
 				yield return Global.HelpMe();
 				moleMan.SetActive(true);
+			}
+			
+			if(showChance >= ventUi && !ventShow && Global.ac == false)
+			{
+				ventShow = true;
+				yield return Global.HelpMe();
+				ventMan.SetActive(true);
 			}
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
@@ -52,11 +62,15 @@ public class moleBro : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F) && Global.ac == true)
 		{
 			Global.ac = false;
+			moleShow = false;
+			moleMan.SetActive(false);
 		}
 		
 		else if(Input.GetKeyDown(KeyCode.F) && Global.ac == false)
 		{
-			Global.ac = true
+			Global.ac = true;
+			ventShow = false;
+			ventMan.SetActive(false);
 		}
     }
 }

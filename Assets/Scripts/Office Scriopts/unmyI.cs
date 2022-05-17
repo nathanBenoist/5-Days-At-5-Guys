@@ -35,15 +35,13 @@ public class unmyI : MonoBehaviour
 				dude = true;
 				yield return Global.HelpMe();
 				nardSpawn = UnityEngine.Random.Range(0,2);
-				if(nardSpawn == 0 && Global.cantLoveMyself == false)
+				if(nardSpawn == 0)
 				{
-					Global.cantLoveMyself = true;
 					Nard.SetActive(true);
 				}
 				
-				else if(nardSpawn == 1 && Global.sayGoodbye == false)
+				else if(nardSpawn == 1)
 				{
-					Global.sayGoodbye = true;
 					Nerd.SetActive(true);
 				}
 			}

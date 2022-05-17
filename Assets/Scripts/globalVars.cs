@@ -72,6 +72,14 @@ public static class Global
 				finna2012();
 			}
 		}
+		if(moleLad == true)
+		{
+			yield return new WaitForSeconds(3);
+			if(moleBro.moleShow == true || moleBro.ventShow == true)
+			{
+				finna2012();
+			}
+		}
 	}
 	
 	public static IEnumerator IFeelPainEveryNight()
