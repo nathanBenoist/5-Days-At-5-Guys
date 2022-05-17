@@ -177,6 +177,5 @@ public class Bazos : MonoBehaviour
 		nardEn.SetActive(false);
 		Global.canISeeThem = false;
 		Global.sayGoodbye = false;
-	}
-		
+	}	
 }

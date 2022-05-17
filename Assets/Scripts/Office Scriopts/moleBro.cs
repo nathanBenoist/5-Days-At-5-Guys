@@ -83,10 +83,49 @@ public class moleBro : MonoBehaviour
 				}
 				
 				if(mexicanShow == 1 && Global.sayGoodbye == false)
+				{
 					Global.sayGoodbye = true;
 					moleMaxEn.SetActive(true);
 				}
-			}				
+			}		
+
+			if(blind >= blindSpawn && !moleBlindShow && !moleMexicanShow)
+			{
+				moleBlindShow = true;
+				yield return HelpMe();
+				blindShow = UnityEngine.Random.Range(0,2);
+				
+				if(blindShow == 0 && Global.cantLoveMyself == false)
+				{
+					Global.cantLoveMyself = true;
+					moleBlindEn.SetActive(true);
+				}
+				
+				if(blindShow == 1 && Global.sayGoodbye == false)
+				{
+					Global.sayGoodbye = true;
+					moleBlnEn.SetActive(true);
+				}
+			}
+			
+			if(nerd >= nerdSpawn && !moleNerdShow)
+			{
+				moleNerdShow = true;
+				yield return HelpMe();
+				nerdShow = UnityEngine.Random.Range(0,2);
+				
+				if(nerdShow == 0 && Global.cantLoveMyself == false)
+				{
+					Global.cantLoveMyself = true;
+					moleNerdEn.SetActive(true);
+				}
+				
+				if(nerdShow == 1 && Global.sayGoodbye == false)
+				{
+					Global.sayGoodbye = true;
+					moleNardEn.SetActive(true);
+				}
+			}
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
@@ -99,7 +138,7 @@ public class moleBro : MonoBehaviour
 				Global.canISeeThem = false;
 				Global.moleLad = false;
 				Global.commie = true;
-			}
+			}				
 		}
 	}
 
@@ -119,4 +158,31 @@ public class moleBro : MonoBehaviour
 			ventMan.SetActive(false);
 		}
     }
+	
+	void mexicanDespawn()
+	{
+		moleMexicanShow = false;
+		moleMexEn.SetActive(false);
+		moleMaxEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
+	
+	void blindDespawn()
+	{
+		moleBlindShow = false;
+		moleBlindEn.SetActive(false);
+		moleBlnEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
+	
+	void nerdDespawn()
+	{
+		moleNerdShow = false;
+		moleNerdEn.SetActive(false);
+		moleNardEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
 }
