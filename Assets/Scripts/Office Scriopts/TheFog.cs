@@ -6,19 +6,27 @@ public class TheFog : MonoBehaviour
 {
 	private int mexican = 7;
 	private int noEyes = 7;
+	private int nerdUi = 7;
 	private int mexicanChance;
 	private int sight;
+	private int nerdShow;
 	public static bool hope = false;
 	public static bool imDoingFine = false;
+	public static bool fogNerdShow = false;
 	private int immigrant;
 	private int bloodThurst;
+	private int nerdSpawn;
 	public GameObject EndMe;
 	public GameObject redBull;
 	public GameObject stickers;
 	public GameObject war;
+	public GameObject fogNerd;
+	public GameObject fogNard;
 	
     void Start()
     {
+		fogNerd.SetActive(false);
+		fogNard.SetActive(false);
 		EndMe.SetActive(false);
 		redBull.SetActive(false);
 		stickers.SetActive(false);
@@ -27,10 +35,7 @@ public class TheFog : MonoBehaviour
     }
 	
 	public IEnumerator Numb()
-	{
-		immigrant = UnityEngine.Random.Range(0,2);
-		bloodThurst = UnityEngine.Random.Range(0,2);
-		
+	{	
 		while(Global.losingInterst == true)
 		{
 			yield return Global.Timeout();
@@ -38,6 +43,7 @@ public class TheFog : MonoBehaviour
 			yield return new WaitForSeconds(3);
 			mexicanChance = UnityEngine.Random.Range(1,11);
 			sight = UnityEngine.Random.Range(1, 11);
+			nerdShow = UnityEngine.Random.Range(1,11);
 			
 			if(mexican >= mexicanChance && !hope && !imDoingFine)
 			{
@@ -66,7 +72,7 @@ public class TheFog : MonoBehaviour
 				
 				if(bloodThurst == 0 && Global.cantLoveMyself == false)
 				{
-					Global.sayGoodbye = true;
+					Global.cantLoveMyself = true;
 					stickers.SetActive(true);
 				}
 				
@@ -75,6 +81,24 @@ public class TheFog : MonoBehaviour
 					Global.sayGoodbye = true;
 					war.SetActive(true);
 				}
+			}
+			
+			if(nerdSpawn >= nerdShow && !fogNerdShow)
+			{
+				fogNerdShow = true;
+				yield return Global.HelpMe();
+				nerdSpawn = UnityEngine.Random.Range(0,2);
+				
+				if(nerdSpawn == 0 && Global.cantLoveMyself == false)
+				{
+					Global.cantLoveMyself = true;
+					fogNerd.SetActive(true);
+				}
+				
+				if(nerdShow == 1 && Global.sayGoodbye == false)
+				{
+					Global.sayGoodbye = true;
+					fogNard.SetActive(true);
 			}
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
@@ -97,11 +121,13 @@ public class TheFog : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) && hope == true)
 		{
 			INeedABreak();
+			nerdDespawn();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.E) && imDoingFine == true)
 		{
 			bang();
+			nerdDespawn();
 		}
 		
 		if(Input.GetKeyDown(KeyCode.E) && hope == true || Input.GetKeyDown(KeyCode.Q) && imDoingFine == true)
@@ -124,6 +150,15 @@ public class TheFog : MonoBehaviour
 		imDoingFine = false;
 		stickers.SetActive(false);
 		war.SetActive(false);
+		Global.cantLoveMyself = false;
+		Global.sayGoodbye = false;
+	}
+	
+	void nerdDespawn()
+	{
+		fogNerdShow = false;
+		fogNard.SetActive(false);
+		fogNerd.SetActive(false);
 		Global.cantLoveMyself = false;
 		Global.sayGoodbye = false;
 	}
