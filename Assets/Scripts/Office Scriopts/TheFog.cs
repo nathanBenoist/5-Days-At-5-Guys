@@ -99,6 +99,7 @@ public class TheFog : MonoBehaviour
 				{
 					Global.sayGoodbye = true;
 					fogNard.SetActive(true);
+				}
 			}
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)

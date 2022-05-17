@@ -5,6 +5,24 @@ using UnityEngine;
 public class moleBro : MonoBehaviour
 {
 	private int ui = 7;
+	private int mexican = 7;
+	private int blind = 7;
+	private int nerd = 7;
+	private int mexicanSpawn;
+	private int blindSpawn;
+	private int nerdSpawn;
+	public static bool moleMexicanShow = false;
+	public static bool moleBlindShow = false;
+	public static bool moleNerdShow = false;
+	private int mexicanShow;
+	private int blindShow;
+	private int nerdShow;
+	public GameObject moleMexEn;
+	public GameObject moleMaxEn;
+	public GameObject moleBlindEn;
+	public GameObject moleBlnEn;
+	public GameObject moleNerdEn;
+	public GameObject moleNardEn;
 	private int showChance;
 	public static bool moleShow = false;
 	public GameObject moleMan;
@@ -15,7 +33,13 @@ public class moleBro : MonoBehaviour
 	
     void Start()
     {
-        moleMan.SetActive(false);
+        moleMexEn.SetActive(false);
+		moleMaxEn.SetActive(false);
+		moleBlindEn.SetActive(false);
+		moleBlnEn.SetActive(false);
+		moleNerdEn.SetActive(false);
+		moleNardEn.SetActive(false);
+		moleMan.SetActive(false);
 		StartCoroutine(moleGuy());		
     }
 
@@ -41,6 +65,28 @@ public class moleBro : MonoBehaviour
 				yield return Global.HelpMe();
 				ventMan.SetActive(true);
 			}
+			
+			mexicanSpawn = UnityEngine.Random.Range(1,11);
+			blindSpawn = UnityEngine.Random.Range(1,11);
+			nerdSpawn = UnityEngine.Random.Range(1,11);
+			
+			if(mexican >= mexicanSpawn && !moleMexicanShow && !moleBlindShow)
+			{
+				moleMexicanShow = true;
+				yield return HelpMe();
+				mexicanShow = UnityEngine.Random.Range(0,2);
+				
+				if(mexicanShow == 0 && Global.cantLoveMyself == false)
+				{
+					Global.cantLoveMyself = true;
+					moleMexEn.SetActive(true);
+				}
+				
+				if(mexicanShow == 1 && Global.sayGoodbye == false)
+					Global.sayGoodbye = true;
+					moleMaxEn.SetActive(true);
+				}
+			}				
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{

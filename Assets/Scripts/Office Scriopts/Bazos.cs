@@ -54,6 +54,68 @@ public class Bazos : MonoBehaviour
 				
 				Debug.Log("Give me my power back");
 				
+				mexicanSpawn = UnityEngine.Random.Range(1,11);
+				blindSpawn = UnityEngine.Random.Range(1,11);
+				nerdSpawn = UnityEngine.Random.Range(1,11);
+				
+				if(mexican >= mexicanSpawn && !bazosMexicanShow && !bazosBlindShow)
+				{
+					bazosMexicanShow = true;
+					yield return Global.HelpMe();
+					mexicanShow = UnityEngine.Random.Range(0,2);
+					
+					if(mexicanShow == 0 && Global.cantLoveMyself == false)
+					{
+						Global.cantLoveMyself = true;
+						mexEn.SetActive(true);
+					}
+					
+					if(mexicanShow == 1 && Global.sayGoodbye == false)
+					{
+						Global.sayGoodbye = true;
+						maxEn.SetActive(true);
+					}
+				}
+				
+				if(blind >= blindSpawn && !bazosBlindShow && !bazosMexicanShow)
+				{
+					bazosBlindShow = true;
+					yield return Global.HelpMe();
+					blindShow = UnityEngine.Random.Range(0,2);
+					
+					if(blindShow == 0 && Global.cantLoveMyself == false)
+					{
+						Global.cantLoveMyself = true;
+						blindEn.SetActive(true);
+					}
+					
+					if(blindShow == 1 && Global.sayGoodbye == false)
+					{
+						Global.sayGoodbye = true;
+						bldEn.SetActive(true);
+					}
+				}
+				
+				if(nerd >= nerdSpawn && !bazosNerdShow) 
+				{
+					bazosNerdShow = true;
+					yield return Global.HelpMe();
+					nerdShow = UnityEngine.Random.Range(0,2);
+					
+					if(nerdShow == 0 && Global.cantLoveMyself == false)
+					{
+						Global.cantLoveMyself = true;
+						nerdEn.SetActive(true);
+					}
+					
+					if(nerdShow == 1 && Global.sayGoodbye == false)
+					{
+						Global.sayGoodbye = true;
+						nardEn.SetActive(true);
+					}
+				}
+					
+				
 				if (Global.glockCount != 8 && Global.isThereLove == false)
 				{
 					yield return Global.Timeout();
@@ -72,6 +134,49 @@ public class Bazos : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Q) && mexicanShow == true)
+		{
+			mexicanDespawn();
+			nerdDespawn();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && blindShow == true)
+		{
+			blindShow();
+			nerdDespawn();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && mexicanShow == true || Input.GetKeyDown(KeyCode.Q) && blindShow == true)
+		{
+			Global.finna2012();
+		}
     }
+	
+	void mexicanDespawn()
+	{
+		bazosMexicanShow = false;
+		mexEn.SetActive(false);
+		maxEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
+	
+	void blindDespawn()
+	{
+		bazosBlindShow = false;
+		blindEn.SetActive(false);
+		bldEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
+	
+	void nerdDespawn()
+	{
+		bazosNerdShow = false;
+		nerdEn.SetActive(false);
+		nardEn.SetActive(false);
+		Global.canISeeThem = false;
+		Global.sayGoodbye = false;
+	}
+		
 }
