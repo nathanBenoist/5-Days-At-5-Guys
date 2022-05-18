@@ -34,12 +34,12 @@ public class TheFog : MonoBehaviour
 		StartCoroutine(Numb());
     }
 	
-	public IEnumerator Numb()
+	private IEnumerator Numb()
 	{	
 		while(Global.losingInterst == true)
 		{
-			yield return Global.Timeout();
-			yield return Global.IFeelPainEveryNight();
+			StartCoroutine(Global.Timeout());
+			StartCoroutine(Global.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			mexicanChance = UnityEngine.Random.Range(1,11);
 			sight = UnityEngine.Random.Range(1, 11);
@@ -48,7 +48,7 @@ public class TheFog : MonoBehaviour
 			if(mexican >= mexicanChance && !hope && !imDoingFine)
 			{
 				hope = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				immigrant = UnityEngine.Random.Range(0,2);
 				
 				if(immigrant == 0 && Global.cantLoveMyself == false)
@@ -67,7 +67,7 @@ public class TheFog : MonoBehaviour
 			if(noEyes >= sight && !imDoingFine && !hope)
 			{
 				imDoingFine = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				bloodThurst = UnityEngine.Random.Range(0,2);
 				
 				if(bloodThurst == 0 && Global.cantLoveMyself == false)
@@ -83,10 +83,10 @@ public class TheFog : MonoBehaviour
 				}
 			}
 			
-			if(nerdSpawn >= nerdShow && !fogNerdShow)
+			if(nerdUi >= nerdShow && !fogNerdShow)
 			{
 				fogNerdShow = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				nerdSpawn = UnityEngine.Random.Range(0,2);
 				
 				if(nerdSpawn == 0 && Global.cantLoveMyself == false)
@@ -104,12 +104,12 @@ public class TheFog : MonoBehaviour
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
-				yield return Global.Timeout();
+				StartCoroutine(Global.Timeout());
 			}
 			
 			if(Global.canISeeThem == true)
 			{
-				yield return Global.IsThereATomorrow();
+				StartCoroutine(Global.IsThereATomorrow());
 				Global.canISeeThem = false;
 				Global.losingInterst = false;
 				Global.dreamer = true;

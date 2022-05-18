@@ -38,19 +38,19 @@ public class Bazos : MonoBehaviour
 		StartCoroutine(mrKrabs());
     }
 	
-	public IEnumerator mrKrabs()
+	private IEnumerator mrKrabs()
 	{
 		while(Global.dreamer == true)
 		{
-			yield return Global.Timeout();	
-			yield return Global.IFeelPainEveryNight();
+			StartCoroutine(Global.Timeout());	
+			StartCoroutine(Global.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			billion = UnityEngine.Random.Range(1, 11);
 			
 			if(money >= billion && !notAsRichAsElon)
 			{
 				notAsRichAsElon = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				
 				Debug.Log("Give me my power back");
 				
@@ -61,7 +61,7 @@ public class Bazos : MonoBehaviour
 				if(mexican >= mexicanSpawn && !bazosMexicanShow && !bazosBlindShow)
 				{
 					bazosMexicanShow = true;
-					yield return Global.HelpMe();
+					StartCoroutine(Global.HelpMe());
 					mexicanShow = UnityEngine.Random.Range(0,2);
 					
 					if(mexicanShow == 0 && Global.cantLoveMyself == false)
@@ -80,7 +80,7 @@ public class Bazos : MonoBehaviour
 				if(blind >= blindSpawn && !bazosBlindShow && !bazosMexicanShow)
 				{
 					bazosBlindShow = true;
-					yield return Global.HelpMe();
+					StartCoroutine(Global.HelpMe());
 					blindShow = UnityEngine.Random.Range(0,2);
 					
 					if(blindShow == 0 && Global.cantLoveMyself == false)
@@ -99,7 +99,7 @@ public class Bazos : MonoBehaviour
 				if(nerd >= nerdSpawn && !bazosNerdShow) 
 				{
 					bazosNerdShow = true;
-					yield return Global.HelpMe();
+					StartCoroutine(Global.HelpMe());
 					nerdShow = UnityEngine.Random.Range(0,2);
 					
 					if(nerdShow == 0 && Global.cantLoveMyself == false)
@@ -118,12 +118,12 @@ public class Bazos : MonoBehaviour
 				
 				if (Global.glockCount != 8 && Global.isThereLove == false)
 				{
-					yield return Global.Timeout();
+					StartCoroutine(Global.Timeout());
 				}
 				
 				if(Global.canISeeThem == false)
 				{
-					yield return Global.IsThereATomorrow();
+					StartCoroutine(Global.IsThereATomorrow());
 					Global.canISeeThem = false;
 					Global.dreamer = false;
 					Global.moleLad = true;
@@ -134,19 +134,19 @@ public class Bazos : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q) && mexicanShow == true)
+        if(Input.GetKeyDown(KeyCode.Q) && bazosMexicanShow == true)
 		{
 			mexicanDespawn();
 			nerdDespawn();
 		}
 		
-		if(Input.GetKeyDown(KeyCode.E) && blindShow == true)
+		if(Input.GetKeyDown(KeyCode.E) && bazosBlindShow == true)
 		{
-			blindShow();
+			blindDespawn();
 			nerdDespawn();
 		}
 		
-		if(Input.GetKeyDown(KeyCode.E) && mexicanShow == true || Input.GetKeyDown(KeyCode.Q) && blindShow == true)
+		if(Input.GetKeyDown(KeyCode.E) && bazosMexicanShow == true || Input.GetKeyDown(KeyCode.Q) && bazosBlindShow == true)
 		{
 			Global.finna2012();
 		}

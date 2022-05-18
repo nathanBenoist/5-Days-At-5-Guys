@@ -585,6 +585,8 @@ MonoBehaviour:
   redBull: {fileID: 1817079045}
   stickers: {fileID: 753869380}
   war: {fileID: 1488462905}
+  fogNerd: {fileID: 1029663285}
+  fogNard: {fileID: 1736445507}
 --- !u!4 &1129093852
 Transform:
   m_ObjectHideFlags: 0
