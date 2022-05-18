@@ -98,7 +98,7 @@ public static class Global
 	{
 		isThereLove = true;
 		Debug.Log("tiner started");
-		yield return new WaitForSeconds(30);
+		yield return new WaitForSeconds(20);
 		glockCount += 1;
 		Debug.Log("Hour went by");
 		isThereLove = false;

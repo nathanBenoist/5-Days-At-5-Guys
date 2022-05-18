@@ -43,26 +43,26 @@ public class moleBro : MonoBehaviour
 		StartCoroutine(moleGuy());		
     }
 
-	public IEnumerator moleGuy() 
+	private IEnumerator moleGuy() 
 	{
 		while(Global.moleLad == false)
 		{			
-			yield return Global.Timeout();	
-			yield return Global.IFeelPainEveryNight();
+			StartCoroutine(Global.Timeout());	
+			StartCoroutine(Global.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			
 			showChance = UnityEngine.Random.Range(1,11);
 			if(showChance >= ui && !moleShow && Global.ac == true)
 			{
 				moleShow = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				moleMan.SetActive(true);
 			}
 			
 			if(showChance >= ventUi && !ventShow && Global.ac == false)
 			{
 				ventShow = true;
-				yield return Global.HelpMe();
+				StartCoroutine(Global.HelpMe());
 				ventMan.SetActive(true);
 			}
 			
@@ -73,7 +73,7 @@ public class moleBro : MonoBehaviour
 			if(mexican >= mexicanSpawn && !moleMexicanShow && !moleBlindShow)
 			{
 				moleMexicanShow = true;
-				yield return HelpMe();
+				StartCoroutine(Global.HelpMe());
 				mexicanShow = UnityEngine.Random.Range(0,2);
 				
 				if(mexicanShow == 0 && Global.cantLoveMyself == false)
@@ -92,7 +92,7 @@ public class moleBro : MonoBehaviour
 			if(blind >= blindSpawn && !moleBlindShow && !moleMexicanShow)
 			{
 				moleBlindShow = true;
-				yield return HelpMe();
+				StartCoroutine(Global.HelpMe());
 				blindShow = UnityEngine.Random.Range(0,2);
 				
 				if(blindShow == 0 && Global.cantLoveMyself == false)
@@ -111,7 +111,7 @@ public class moleBro : MonoBehaviour
 			if(nerd >= nerdSpawn && !moleNerdShow)
 			{
 				moleNerdShow = true;
-				yield return HelpMe();
+				StartCoroutine(Global.HelpMe());
 				nerdShow = UnityEngine.Random.Range(0,2);
 				
 				if(nerdShow == 0 && Global.cantLoveMyself == false)
@@ -129,12 +129,12 @@ public class moleBro : MonoBehaviour
 			
 			if (Global.glockCount != 8 && Global.isThereLove == false)
 			{
-				yield return Global.Timeout();
+				StartCoroutine(Global.Timeout());
 			}
 			
 			if(Global.canISeeThem == true)
 			{
-				yield return Global.IsThereATomorrow();
+				StartCoroutine(Global.IsThereATomorrow());
 				Global.canISeeThem = false;
 				Global.moleLad = false;
 				Global.commie = true;
