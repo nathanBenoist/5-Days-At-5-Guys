@@ -45,7 +45,7 @@ public class moleBro : MonoBehaviour
 
 	private IEnumerator moleGuy() 
 	{
-		while(Global.moleLad == false)
+		while(Global.moleLad == true)
 		{			
 			StartCoroutine(Global.Timeout());	
 			StartCoroutine(Global.IFeelPainEveryNight());
