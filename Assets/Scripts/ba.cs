@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lonelyness : MonoBehaviour
+public class ba : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Timers;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,12 +9,8 @@ public class globalVars : MonoBehaviour
 
 public static class Global
 {
-	public static Timer gameClock;
-	public static double cofMeter = 1;
-	public static int glockCount = 7;
-	public static bool isThereLove = false;
 	public static bool canISeeThem = false;
-	public static bool theFogIsComing = true;
+	public static bool theFogIsComing = false; // change to true
 	public static bool losingInterst = false;
 	public static bool dreamer = false;
 	public static bool cantLoveMyself = false;
@@ -29,13 +23,6 @@ public static class Global
 	{
 		SceneManager.LoadScene("GameOver");
 		Application.Quit();
-	}
-	
-	public static IEnumerator IsThereATomorrow()
-	{
-		canISeeThem = false;
-		SceneManager.LoadScene("Day");
-		yield return new WaitForSeconds(0);
 	}
 	
 	public static IEnumerator HelpMe()
@@ -82,38 +69,11 @@ public static class Global
 		}
 	}
 	
-	public static IEnumerator IFeelPainEveryNight()
-	{
-		yield return new WaitForSeconds(2);
-		cofMeter -= .2;
-	}
-	
-	public static IEnumerator ThereIsNoHope()
-	{
-		cofMeter += .95;
-		yield return new WaitForSeconds(1);
-	}
-	
-	public static IEnumerator Timeout()
-	{
-		isThereLove = true;
-		Debug.Log("tiner started");
-		yield return new WaitForSeconds(20);
-		glockCount += 1;
-		Debug.Log("Hour went by");
-		isThereLove = false;
-		
-		if(glockCount == 8)
-		{
-			canISeeThem = true;
-		}
-	}
-	
 	public static IEnumerator MaybeTodayWillBeBetter()
 	{
 		yield return new WaitForSeconds(3);
-		cofMeter = 1;
-		glockCount = 0;
+		CaffinMeter.cofMeter = 1;
+		Timer.glockCount = 0;
 		SceneManager.LoadScene("Office");
 	}
 }

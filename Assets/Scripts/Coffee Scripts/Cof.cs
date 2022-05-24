@@ -16,7 +16,7 @@ public class Cof : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
 		{
-			StartCoroutine(Global.ThereIsNoHope());
+			StartCoroutine(CaffinMeter.ThereIsNoHope());
 		}
 		
 		if(Input.GetKeyDown(KeyCode.X))

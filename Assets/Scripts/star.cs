@@ -14,7 +14,8 @@ public class star : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
 		{
-			SceneManager.LoadScene("Office");
+			SceneManager.LoadScene("Day1");
+			Global.moleLad = true;
 		}
     }
 }

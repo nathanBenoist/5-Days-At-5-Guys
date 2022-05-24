@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bazos : MonoBehaviour
 {
-	private int money = 7;
+	private int money = 3;
 	private int mexican = 7;
 	private int blind = 7;
 	private int nerd = 7;
@@ -24,6 +25,7 @@ public class Bazos : MonoBehaviour
 	public GameObject bldEn;
 	public GameObject nerdEn;
 	public GameObject nardEn;
+	public AudioSource windowKnock;
 	
 	public static bool notAsRichAsElon = false;
 	
@@ -42,8 +44,8 @@ public class Bazos : MonoBehaviour
 	{
 		while(Global.dreamer == true)
 		{
-			StartCoroutine(Global.Timeout());	
-			StartCoroutine(Global.IFeelPainEveryNight());
+			StartCoroutine(Timer.Timeout());	
+			StartCoroutine(CaffinMeter.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			billion = UnityEngine.Random.Range(1, 11);
 			
@@ -51,96 +53,95 @@ public class Bazos : MonoBehaviour
 			{
 				notAsRichAsElon = true;
 				StartCoroutine(Global.HelpMe());
+				windowKnock.Play();
+			}
+			
+			mexicanSpawn = UnityEngine.Random.Range(1,11);
+			blindSpawn = UnityEngine.Random.Range(1,11);
+			nerdSpawn = UnityEngine.Random.Range(1,11);
+			
+			if(mexican >= mexicanSpawn && !bazosMexicanShow && !bazosBlindShow)
+			{
+				bazosMexicanShow = true;
+				StartCoroutine(Global.HelpMe());
+				mexicanShow = UnityEngine.Random.Range(0,2);
 				
-				Debug.Log("Give me my power back");
-				
-				mexicanSpawn = UnityEngine.Random.Range(1,11);
-				blindSpawn = UnityEngine.Random.Range(1,11);
-				nerdSpawn = UnityEngine.Random.Range(1,11);
-				
-				if(mexican >= mexicanSpawn && !bazosMexicanShow && !bazosBlindShow)
+				if(mexicanShow == 0 && Global.cantLoveMyself == false)
 				{
-					bazosMexicanShow = true;
-					StartCoroutine(Global.HelpMe());
-					mexicanShow = UnityEngine.Random.Range(0,2);
-					
-					if(mexicanShow == 0 && Global.cantLoveMyself == false)
-					{
-						Global.cantLoveMyself = true;
-						mexEn.SetActive(true);
-					}
-					
-					if(mexicanShow == 1 && Global.sayGoodbye == false)
-					{
-						Global.sayGoodbye = true;
-						maxEn.SetActive(true);
-					}
+					Global.cantLoveMyself = true;
+					mexEn.SetActive(true);
 				}
 				
-				if(blind >= blindSpawn && !bazosBlindShow && !bazosMexicanShow)
+				if(mexicanShow == 1 && Global.sayGoodbye == false)
 				{
-					bazosBlindShow = true;
-					StartCoroutine(Global.HelpMe());
-					blindShow = UnityEngine.Random.Range(0,2);
-					
-					if(blindShow == 0 && Global.cantLoveMyself == false)
-					{
-						Global.cantLoveMyself = true;
-						blindEn.SetActive(true);
-					}
-					
-					if(blindShow == 1 && Global.sayGoodbye == false)
-					{
-						Global.sayGoodbye = true;
-						bldEn.SetActive(true);
-					}
+					Global.sayGoodbye = true;
+					maxEn.SetActive(true);
+				}
+			}
+				
+			if(blind >= blindSpawn && !bazosBlindShow && !bazosMexicanShow)
+			{
+				bazosBlindShow = true;
+				StartCoroutine(Global.HelpMe());
+				blindShow = UnityEngine.Random.Range(0,2);
+				
+				if(blindShow == 0 && Global.cantLoveMyself == false)
+				{
+					Global.cantLoveMyself = true;
+					blindEn.SetActive(true);
 				}
 				
-				if(nerd >= nerdSpawn && !bazosNerdShow) 
+				if(blindShow == 1 && Global.sayGoodbye == false)
 				{
-					bazosNerdShow = true;
-					StartCoroutine(Global.HelpMe());
-					nerdShow = UnityEngine.Random.Range(0,2);
-					
-					if(nerdShow == 0 && Global.cantLoveMyself == false)
-					{
-						Global.cantLoveMyself = true;
-						nerdEn.SetActive(true);
-					}
-					
-					if(nerdShow == 1 && Global.sayGoodbye == false)
-					{
-						Global.sayGoodbye = true;
-						nardEn.SetActive(true);
-					}
+					Global.sayGoodbye = true;
+					bldEn.SetActive(true);
 				}
-					
+			}
+			
+			if(nerd >= nerdSpawn && !bazosNerdShow) 
+			{
+				bazosNerdShow = true;
+				StartCoroutine(Global.HelpMe());
+				nerdShow = UnityEngine.Random.Range(0,2);
 				
-				if (Global.glockCount != 8 && Global.isThereLove == false)
+				if(nerdShow == 0 && Global.cantLoveMyself == false)
 				{
-					StartCoroutine(Global.Timeout());
+					Global.cantLoveMyself = true;
+					nerdEn.SetActive(true);
 				}
 				
-				if(Global.canISeeThem == false)
+				if(nerdShow == 1 && Global.sayGoodbye == false)
 				{
-					StartCoroutine(Global.IsThereATomorrow());
-					Global.canISeeThem = false;
-					Global.dreamer = false;
-					Global.moleLad = true;
+					Global.sayGoodbye = true;
+					nardEn.SetActive(true);
 				}
+				
+			}
+			
+			if (Timer.glockCount != 8 && Timer.isThereLove == false)
+			{
+				StartCoroutine(Timer.Timeout());
+			}
+			
+			if(Timer.glockCount >= 8)
+			{
+				SceneManager.LoadScene("Day4");
+				Global.canISeeThem = false;
+				Global.dreamer = false;
+				Global.moleLad = true;
 			}
 		}
 	}
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q) && bazosMexicanShow == true)
+        if(Input.GetKeyDown(KeyCode.Q) && bazosMexicanShow == true || Input.GetKeyDown(KeyCode.Q) && bazosNerdShow == true)
 		{
 			mexicanDespawn();
 			nerdDespawn();
 		}
 		
-		if(Input.GetKeyDown(KeyCode.E) && bazosBlindShow == true)
+		if(Input.GetKeyDown(KeyCode.E) && bazosBlindShow == true || Input.GetKeyDown(KeyCode.E) && bazosNerdShow == true)
 		{
 			blindDespawn();
 			nerdDespawn();

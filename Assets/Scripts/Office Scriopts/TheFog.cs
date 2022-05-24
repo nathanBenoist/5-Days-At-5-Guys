@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TheFog : MonoBehaviour
 {
@@ -38,8 +39,8 @@ public class TheFog : MonoBehaviour
 	{	
 		while(Global.losingInterst == true)
 		{
-			StartCoroutine(Global.Timeout());
-			StartCoroutine(Global.IFeelPainEveryNight());
+			StartCoroutine(Timer.Timeout());
+			StartCoroutine(CaffinMeter.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			mexicanChance = UnityEngine.Random.Range(1,11);
 			sight = UnityEngine.Random.Range(1, 11);
@@ -102,14 +103,18 @@ public class TheFog : MonoBehaviour
 				}
 			}
 			
-			if (Global.glockCount != 8 && Global.isThereLove == false)
+			if (Timer.glockCount != 8 && Timer.isThereLove == false)
 			{
-				StartCoroutine(Global.Timeout());
+				StartCoroutine(Timer.Timeout());
 			}
 			
-			if(Global.canISeeThem == true)
+			if(Timer.glockCount >= 8)
 			{
-				StartCoroutine(Global.IsThereATomorrow());
+				hope = false;
+				imDoingFine = false;
+				Global.cantLoveMyself = false;
+				Global.sayGoodbye = false;
+				SceneManager.LoadScene("Day3");
 				Global.canISeeThem = false;
 				Global.losingInterst = false;
 				Global.dreamer = true;
@@ -119,13 +124,13 @@ public class TheFog : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q) && hope == true)
+        if(Input.GetKeyDown(KeyCode.Q) && hope == true || Input.GetKeyDown(KeyCode.Q) && fogNerdShow == true)
 		{
 			INeedABreak();
 			nerdDespawn();
 		}
 		
-		if(Input.GetKeyDown(KeyCode.E) && imDoingFine == true)
+		if(Input.GetKeyDown(KeyCode.E) && imDoingFine == true || Input.GetKeyDown(KeyCode.E) && fogNerdShow == true) 
 		{
 			bang();
 			nerdDespawn();
