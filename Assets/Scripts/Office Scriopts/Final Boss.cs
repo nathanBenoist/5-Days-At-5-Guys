@@ -53,14 +53,14 @@ public class FinalBoss : MonoBehaviour
 	{
 		while(Global.commie == true)
 		{
-			StartCoroutine(Global.Timeout());	
-			StartCoroutine(Global.IFeelPainEveryNight());
+			StartCoroutine(Timer.Timeout());	
+			StartCoroutine(CaffinMeter.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			
 			mexShowChance = UnityEngine.Random.Range(1,11);
-			if(mexicanUI >= mexShowChance && !rusMexSpawn && !rusBlind)
+			if(mexicanUI >= mexShowChance && !russianShow && !rusBlind)
 			{
-				rusMexSpawn = true;
+				russianShow = true;
 				StartCoroutine(Global.HelpMe());
 				mexSpawn = UnityEngine.Random.Range(0,2);
 				
@@ -78,7 +78,7 @@ public class FinalBoss : MonoBehaviour
 			}
 			
 			blindShowChance = UnityEngine.Random.Range(1, 11);
-			if(blindUI >= blindShowChance && !rusBlind && !rusMexSpawn)
+			if(blindUI >= blindShowChance && !rusBlind && !russianShow)
 			{
 				rusBlind = true;
 				StartCoroutine(Global.HelpMe());
@@ -124,11 +124,47 @@ public class FinalBoss : MonoBehaviour
 				StartCoroutine(Global.HelpMe());
 				rusMoleEn.SetActive(true);
 			}
+			
+			if (Timer.glockCount != 8 && Timer.isThereLove == false)
+			{
+				StartCoroutine(Timer.Timeout());
+			}
+			
+			if(Global.canISeeThem == true)
+			{
+				Application.Quit();
+			}				
 		}
 	}
 
     void Update()
     {
-        
-    }
+		
+	}
+		void mexicanDespawn()
+		{
+			rusMexican= false;
+			rusMexEn.SetActive(false);
+			rusMaxEn.SetActive(false);
+			Global.canISeeThem = false;
+			Global.sayGoodbye = false;
+		}
+		
+		void blindDespawn()
+		{
+			rusBlind = false;
+			rusBlindEn.SetActive(false);
+			rusBlnEn.SetActive(false);
+			Global.canISeeThem = false;
+			Global.sayGoodbye = false;
+		}
+		
+		void nerdDespawn()
+		{
+			rusNerd = false;
+			rusNerdEn.SetActive(false);
+			rusNardEn.SetActive(false);
+			Global.canISeeThem = false;
+			Global.sayGoodbye = false;
+		}
 }

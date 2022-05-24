@@ -3,6 +3,7 @@ using System.Timers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class unmyI : MonoBehaviour
 {
@@ -25,8 +26,9 @@ public class unmyI : MonoBehaviour
 	{
 		while(Global.theFogIsComing == true)
 		{
-			StartCoroutine(Global.Timeout());	
-			StartCoroutine(Global.IFeelPainEveryNight());
+			StartCoroutine(Timer.Timeout());	
+			StartCoroutine(CaffinMeter.IFeelPainEveryNight());
+			Debug.Log(CaffinMeter.cofMeter);
 			yield return new WaitForSeconds(3);
 			number = UnityEngine.Random.Range(1,11);
 			
@@ -46,17 +48,18 @@ public class unmyI : MonoBehaviour
 				}
 			}
 			
-			if (Global.glockCount != 8 && Global.isThereLove == false)
+			if (Timer.glockCount != 8 && Timer.isThereLove == false)
 			{
-				StartCoroutine(Global.Timeout());
+				StartCoroutine(Timer.Timeout());
 			}
 			
-			if(Global.canISeeThem == true)
+			if(Timer.glockCount >= 8)
 			{
-				StartCoroutine(Global.IsThereATomorrow());
+				dude = false;
 				Global.canISeeThem = false;
 				Global.theFogIsComing = false;
 				Global.losingInterst = true;
+				SceneManager.LoadScene("Day2");
 			}
 		} 
 	}

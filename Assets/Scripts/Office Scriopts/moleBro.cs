@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class moleBro : MonoBehaviour
 {
@@ -47,8 +48,8 @@ public class moleBro : MonoBehaviour
 	{
 		while(Global.moleLad == true)
 		{			
-			StartCoroutine(Global.Timeout());	
-			StartCoroutine(Global.IFeelPainEveryNight());
+			StartCoroutine(Timer.Timeout());	
+			StartCoroutine(CaffinMeter.IFeelPainEveryNight());
 			yield return new WaitForSeconds(3);
 			
 			showChance = UnityEngine.Random.Range(1,11);
@@ -127,14 +128,14 @@ public class moleBro : MonoBehaviour
 				}
 			}
 			
-			if (Global.glockCount != 8 && Global.isThereLove == false)
+			if (Timer.glockCount != 8 && Timer.isThereLove == false)
 			{
-				StartCoroutine(Global.Timeout());
+				StartCoroutine(Timer.Timeout());
 			}
 			
 			if(Global.canISeeThem == true)
 			{
-				StartCoroutine(Global.IsThereATomorrow());
+				SceneManager.LoadScene("Day5");
 				Global.canISeeThem = false;
 				Global.moleLad = false;
 				Global.commie = true;
@@ -156,6 +157,23 @@ public class moleBro : MonoBehaviour
 			Global.ac = true;
 			ventShow = false;
 			ventMan.SetActive(false);
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Q) && moleMexicanShow == true)
+		{
+			mexicanDespawn();
+			nerdDespawn();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && moleBlindShow == true)
+		{
+			blindDespawn();
+			nerdDespawn();
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E) && moleMexicanShow == true || Input.GetKeyDown(KeyCode.Q) && moleBlindShow == true)
+		{
+			Global.finna2012();
 		}
     }
 	

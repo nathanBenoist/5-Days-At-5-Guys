@@ -9,9 +9,15 @@ public class bazosMad : MonoBehaviour
 	
     void Start()
     {
-        if(Bazos.notAsRichAsElon == true)
+        hiddenFromLife.SetActive(false);
+		
+		if(Bazos.notAsRichAsElon == true)
 		{
 			bazos.SetActive(true);
+		}
+		else
+		{
+			bazos.SetActive(false);
 		}
     }
 
