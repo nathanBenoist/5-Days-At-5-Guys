@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
 	{
 		isThereLove = true;
 		Debug.Log("tiner started");
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(15);
 		glockCount += 1;
 		Debug.Log("Hour went by");
 		Debug.Log(glockCount);

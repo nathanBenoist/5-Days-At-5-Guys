@@ -10,7 +10,7 @@ public class globalVars : MonoBehaviour
 public static class Global
 {
 	public static bool canISeeThem = false;
-	public static bool theFogIsComing = false; // change to true
+	public static bool theFogIsComing = true;
 	public static bool losingInterst = false;
 	public static bool dreamer = false;
 	public static bool cantLoveMyself = false;

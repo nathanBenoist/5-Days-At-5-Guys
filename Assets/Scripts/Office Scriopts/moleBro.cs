@@ -9,12 +9,15 @@ public class moleBro : MonoBehaviour
 	private int mexican = 7;
 	private int blind = 7;
 	private int nerd = 7;
+	private int moleWin = 2;
+	private int moleWinSpawn;
 	private int mexicanSpawn;
 	private int blindSpawn;
 	private int nerdSpawn;
 	public static bool moleMexicanShow = false;
 	public static bool moleBlindShow = false;
 	public static bool moleNerdShow = false;
+	public static bool moleWindowShow = false;
 	private int mexicanShow;
 	private int blindShow;
 	private int nerdShow;
@@ -31,6 +34,7 @@ public class moleBro : MonoBehaviour
 	private int ventUi = 7;
 	public static bool ventShow = false;
 	public GameObject ventMan;
+	public AudioSource moleWinSound;
 	
     void Start()
     {
@@ -41,6 +45,7 @@ public class moleBro : MonoBehaviour
 		moleNerdEn.SetActive(false);
 		moleNardEn.SetActive(false);
 		moleMan.SetActive(false);
+		ventMan.SetActive(false);
 		StartCoroutine(moleGuy());		
     }
 

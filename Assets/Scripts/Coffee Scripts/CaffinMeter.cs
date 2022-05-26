@@ -12,7 +12,7 @@ public class CaffinMeter : MonoBehaviour
 	
     void Start()
     {
-
+		
     }
 
     void Update()

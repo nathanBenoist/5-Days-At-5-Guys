@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Cof : MonoBehaviour
 {	
+	public AudioSource Slip;
     void Start()
     {	
 
@@ -16,6 +17,7 @@ public class Cof : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Z))
 		{
+			Slip.Play();
 			StartCoroutine(CaffinMeter.ThereIsNoHope());
 		}
 		

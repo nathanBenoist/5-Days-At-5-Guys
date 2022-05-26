@@ -23,6 +23,7 @@ public class TheFog : MonoBehaviour
 	public GameObject war;
 	public GameObject fogNerd;
 	public GameObject fogNard;
+	public AudioSource fogMusic;
 	
     void Start()
     {
@@ -33,6 +34,7 @@ public class TheFog : MonoBehaviour
 		stickers.SetActive(false);
 		war.SetActive(false);
 		StartCoroutine(Numb());
+		fogMusic.Play();
     }
 	
 	private IEnumerator Numb()
