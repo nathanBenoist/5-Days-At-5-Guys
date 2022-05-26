@@ -13,13 +13,14 @@ public class unmyI : MonoBehaviour
 	public GameObject Nard;
 	public GameObject Nerd;
 	private int nardSpawn;
-	
+	public AudioSource nerdMusic;
 
     void Start()
     {
 		Nard.SetActive(false);
 		Nerd.SetActive(false);
 		StartCoroutine(MyEvent());
+		nerdMusic.Play();
     }
 	
 	private IEnumerator MyEvent()

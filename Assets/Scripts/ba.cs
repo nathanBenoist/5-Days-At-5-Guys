@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ba : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioSource death;
     void Start()
     {
-        Application.Quit();
+		
+        StartCoroutine(gameOver());
     }
 
     // Update is called once per frame
@@ -15,4 +16,11 @@ public class ba : MonoBehaviour
     {
         
     }
+	
+	private IEnumerator gameOver()
+	{
+		death.Play();
+		yield return new WaitForSeconds(3);
+		Application.Quit();
+	}
 }

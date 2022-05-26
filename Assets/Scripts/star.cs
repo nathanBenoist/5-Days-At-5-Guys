@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class star : MonoBehaviour
 {
+	public AudioSource MenMusic;
     void Start()
     {
-        
+        MenMusic.Play();
     }
 
     void Update()
@@ -15,7 +16,6 @@ public class star : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
 		{
 			SceneManager.LoadScene("Day1");
-			Global.moleLad = true;
 		}
     }
 }

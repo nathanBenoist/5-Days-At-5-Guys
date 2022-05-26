@@ -25,6 +25,7 @@ public class Bazos : MonoBehaviour
 	public GameObject bldEn;
 	public GameObject nerdEn;
 	public GameObject nardEn;
+	public AudioSource windowMusic;
 	public AudioSource windowKnock;
 	
 	public static bool notAsRichAsElon = false;
@@ -38,6 +39,7 @@ public class Bazos : MonoBehaviour
 		nerdEn.SetActive(false);
 		nardEn.SetActive(false);
 		StartCoroutine(mrKrabs());
+		windowMusic.Play();
     }
 	
 	private IEnumerator mrKrabs()
@@ -53,6 +55,7 @@ public class Bazos : MonoBehaviour
 			{
 				notAsRichAsElon = true;
 				StartCoroutine(Global.HelpMe());
+				windowMusic.Stop();
 				windowKnock.Play();
 			}
 			
